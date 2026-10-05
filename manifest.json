@@ -4,11 +4,17 @@
   "description": "체중·식단·스탬프를 기록하는 체중 달력",
   "start_url": "./index.html",
   "scope": "./",
+  "id": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#f6f6f8",
   "theme_color": "#f6f6f8",
   "lang": "ko",
+  "prefer_related_applications": false,
+  "categories": [
+    "health",
+    "lifestyle"
+  ],
   "icons": [
     {
       "src": "icons/icon-192.png",
@@ -28,11 +34,5 @@
       "type": "image/png",
       "purpose": "maskable"
     }
-  ],
-  "id": "./",
-  "categories": [
-    "health",
-    "lifestyle"
-  ],
-  "prefer_related_applications": false
+  ]
 }
