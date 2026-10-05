@@ -72,7 +72,12 @@ nav button.on{background:#e8e8ec}
 .cell.hol .n{color:var(--red)}.cell.sub .n,.cell.sub .hn{color:#e8590c}
 .cell.out .hn{opacity:.4}.cell.today .n{background:#111;color:#fff}
 .hero{padding:12px 14px;margin-bottom:8px;border-radius:20px}.hero .dt{font-size:12.5px;color:var(--mut);font-weight:600}.hero .gr{font-size:clamp(17px,5vw,20px);font-weight:800;margin:2px 0 8px}.chips2{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}.chips2::-webkit-scrollbar{display:none}.c2{flex:none;background:#f2f2f5;border-radius:14px;padding:5px 10px;font-size:12px;font-weight:700;white-space:nowrap}.c2 b{font-weight:800}.c2.pk{background:#111;color:#fff}
-.inst{display:block;width:auto;min-width:112px;margin:10px auto 2px;background:linear-gradient(180deg,#f7f7f8,#dedee2);border:1px solid #c8c8cd;border-radius:16px;padding:7px 13px;font-size:12px;font-weight:700;color:#5f6065;box-shadow:0 1px 5px rgba(0,0,0,.08);cursor:pointer}.inst:active{transform:scale(.98)}.noapp{display:none!important}
+
+/* 심플한 앱 설치 버튼 스타일 추가 */
+.inst{display:block;width:100%;background:#f2f2f5;border:0;border-radius:18px;padding:15px;font-size:15px;font-weight:700;color:#111;cursor:pointer;margin:10px 0;transition:background 0.2s}
+.inst:active{background:#e5e5ea}
+.noapp{display:none!important}
+
 #md{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:30;display:none;align-items:flex-end;justify-content:center}#md.on{display:flex}.mc{background:#fff;border-radius:24px 24px 0 0;padding:20px 20px calc(18px + env(safe-area-inset-bottom,0px));width:min(430px,100%)}.mc h2{margin:0 0 10px}.mc ol{padding-left:20px;margin:0 0 14px;line-height:1.7;font-size:15px}.mc .btn{margin-top:0;margin-bottom:8px}
 .lg{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 12px}
 .lg b{font-size:12px}.lg{margin:6px 0 4px;font-size:12px}
@@ -161,9 +166,9 @@ const HOL={};
 })();
 function hiTxt(k){const t=dn(k),o=HOL[t],w=(t+4)%7;return {t:`${k.replace(/-/g,'.')} (${'일월화수목금토'[w]})`+(o?` · ${o.sub?'대체공휴일':o.n.join('·')}`:''),red:!!o||w===0,blue:w===6&&!o}}
 // nav
-[['in','✏️','입력'],['cal','📅','달력'],['gr','📈','그래프'],['set','⚙️','설정']].forEach(([id,e,l])=>{const b=document.createElement('button');b.dataset.id=id;b.innerHTML=`<i>${e}</i>${l}`;b.onclick=()=>{if(id==='in')setDate(today());tab(id)};$('#nav').appendChild(b)});
+[['cal','📅','달력'],['in','✏️️','입력'],['gr','📈','그래프'],['set','⚙️','설정']].forEach(([id,e,l])=>{const b=document.createElement('button');b.dataset.id=id;b.innerHTML=`<i>${e}</i>${l}`;b.onclick=()=>{if(id==='in')setDate(today());tab(id)};$('#nav').appendChild(b)});
 function tab(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+id));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.id===id));
- if(id==='cal')renderCal();if(id==='gr')renderGraph();if(id==='set'){$('#goal').value=D.goal||'';$('#ht').value=D.height||'';$('#nm').value=D.name||'';$('#sd').value=D.start||'';$('#gd').value=D.goalDate||''}if(id==='in'&&!cur)setDate(today());scrollTo(0,0)}
+ if(id==='cal')renderCal();if(id==='gr')renderGraph();if(id==='set'){$('#goal').value=D.goal||'';$('#ht').value=D.height\vert{}\vert{}'';$('#nm').value=D.name||'';$('#sd').value=D.start\vert{}\vert{}'';$('#gd').value=D.goalDate||''}if(id==='in'&&!cur)setDate(today());scrollTo(0,0)}
 
 // calendar
 function mv(n){view=new Date(view.getFullYear(),view.getMonth()+n,1);renderCal()}
@@ -258,7 +263,7 @@ function renderGraph(){
  ${top.length?`<div class="mut" style="font-weight:700;margin-top:10px">최근 30일 스탬프</div><div class="sc">${top.map(([i,c])=>`<span>${STAMPS[i][0]} ${c}</span>`).join('')}</div>`:''}`}
 
 // settings
-function saveSet(){D.name=$('#nm').value.trim();D.start=$('#sd').value||'';D.goalDate=$('#gd').value||'';D.goal=parseFloat($('#goal').value)||null;D.height=parseFloat($('#ht').value)||'';persist();toast('저장했어요 ✓')}
+function saveSet(){D.name=$('#nm').value.trim();D.start=$('#sd').value\vert{}\vert{}'';D.goalDate=$('#gd').value||'';D.goal=parseFloat($('#goal').value)\vert{}\vert{}null;D.height=parseFloat($('#ht').value)||'';persist();toast('저장했어요 ✓')}
 function demo(){if(!confirm('예시 데이터를 추가할까요? (같은 날짜 기록은 덮어써요)'))return;
  const ws=[65.0,64.3,63.9,63.6,63.3,63.2,62.8,62.6],t=dn(today());
  ws.forEach((w,i)=>{D.days[fromDn(t-7+i)]={w,meals:['','','',''],memo:'',stamps:i?[4,1]:[]}});D.goal=59;persist();toast('추가했어요');tab('cal')}
@@ -272,28 +277,17 @@ addEventListener('appinstalled',()=>{dp=null;upInst();toast('설치됐어요 �
 function modal(t,body,act,fn){$('#mt').textContent=t;$('#mb').innerHTML=body;const a=$('#ma');a.style.display=act?'block':'none';if(act){a.textContent=act;a.onclick=fn}$('#md').classList.add('on')}
 function cm(){$('#md').classList.remove('on')}
 function installApp(){
-  if(STAND()){toast('이미 홈 화면 앱으로 실행 중이에요');return}
-  if(dp){
-    const p=dp;
-    try{
-      p.prompt();
-      p.userChoice.then(r=>{
-        dp=null;
-        if(r&&r.outcome==='accepted')toast('홈 화면에 앱을 설치했어요 🎉');
-        upInst();
-      }).catch(()=>{dp=null;upInst()});
-    }catch(e){dp=null}
-    return;
+ if(STAND()){toast('이미 앱으로 실행 중이에요');return}
+ if(dp){dp.prompt();dp.userChoice.then(()=>{dp=null}).catch(()=>{});return}
+ if(IOS){
+  if(/CriOS|FxiOS|EdgiOS|NAVER|KAKAOTALK|Instagram|FBAN|Line\//i.test(UA)){
+   modal('📲 아이폰 앱 설치 안내','<ol><li>화면 우측 상단 <b>⋮</b> 또는 하단 <b>⋯</b> 버튼을 누르세요.</li><li><b>Safari로 열기</b>를 선택해주세요.</li><li>Safari에서 하단 공유 <b>⬆︎</b> 버튼을 누르고 <b>홈 화면에 추가</b>를 선택하세요.</li></ol>',null);
+   return;
   }
-  if(IOS){
-    if(!/Safari/i.test(UA)||/CriOS|FxiOS|EdgiOS|NAVER|KAKAOTALK|Instagram|FBAN|Line\//i.test(UA)){
-      modal('📲 아이폰 홈 화면에 추가','<ol><li>Safari에서 이 페이지를 열어주세요.</li><li>하단 <b>공유 버튼 ⬆︎</b>을 누르세요.</li><li><b>홈 화면에 추가</b> → <b>추가</b>를 누르세요.</li></ol><p class="mut">추가하면 바탕화면에서 체중달력을 앱처럼 바로 실행할 수 있어요.</p>',null);
-      return;
-    }
-    modal('📲 홈 화면에 추가 (아이폰)','<ol><li>하단 <b>공유 버튼 ⬆︎</b>을 누르세요.</li><li><b>홈 화면에 추가</b>를 선택하세요.</li><li>오른쪽 위 <b>추가</b>를 누르세요.</li></ol>',navigator.share?'공유창 열기':null,()=>navigator.share({title:'체중 달력',url:location.href}).catch(()=>{}));
-    return;
-  }
-  modal('📲 갤럭시 홈 화면에 추가','<ol><li>Chrome 주소창 오른쪽 <b>⋮</b>을 누르세요.</li><li><b>앱 설치</b> 또는 <b>홈 화면에 추가</b>를 선택하세요.</li><li>설치/추가를 확인하면 홈 화면에 아이콘이 생깁니다.</li></ol><p class="mut">Chrome의 설치 메뉴가 아직 표시되지 않으면 페이지를 새로고침한 뒤 다시 눌러주세요.</p>',null);
+  modal('📲 홈 화면에 추가 (아이폰)','<ol><li>화면 하단(또는 상단)의 <b>공유 버튼 ⬆︎</b>을 누르세요.</li><li>목록을 내려 <b>홈 화면에 추가</b>를 선택하세요.</li><li>오른쪽 위 <b>추가</b>를 누르면 바탕화면에 아이콘이 생겨요.</li></ol>',null);
+  return;
+ }
+ modal('📲 기기에 앱 설치 안내','<p class="mut" style="margin-bottom:12px">현재 웹 브라우저 환경에서는 원클릭 자동 설치가 불가능합니다.</p><ol><li>주소가 <b>https://</b>로 시작하는지 확인해주세요.</li><li><b>Chrome</b>: 우측 상단 <b>⋮</b> → <b>앱 설치</b> 또는 <b>홈 화면에 추가</b></li><li><b>삼성 인터넷</b>: 우측 하단 <b>≡</b> → <b>현재 페이지 추가</b> → <b>홈 화면</b></li></ol>',null);
 }
 upInst();
 let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if($('#p-cal').classList.contains('on'))renderCal()},150)});
@@ -314,5 +308,5 @@ function home(){view=new Date();view.setDate(1);cur=null;tab('cal')}
 home();
 addEventListener('pageshow',e=>{if(e.persisted)home()});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)hiddenAt=Date.now();else if(hiddenAt&&Date.now()-hiddenAt>60000)home()});
-if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).then(r=>r.update()).catch(()=>{}))}
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}))}
 </script></body></html>
