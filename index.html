@@ -15,11 +15,11 @@
 :root{color-scheme:light;--bg:#f6f6f8;--card:#fff;--ink:#111;--mut:#8a8a90;--line:#e6e6ea;--acc:#111;--red:#d9534f;--blue:#3f6fd6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;max-width:680px;margin:0 auto;min-height:100vh;min-height:100dvh;padding-bottom:110px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html{background:#e8e8ed}body{box-shadow:0 0 0 1px #dcdce2;margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;max-width:430px;margin:0 auto;min-height:100vh;min-height:100dvh;padding-bottom:110px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .page{display:none;padding:14px max(clamp(8px,3vw,16px),env(safe-area-inset-right,0px)) 0 max(clamp(8px,3vw,16px),env(safe-area-inset-left,0px))}.page.on{display:block}
 h2{font-size:18px;margin:6px 0 12px;font-weight:800}
 .card{background:var(--card);border-radius:22px;padding:16px;box-shadow:0 4px 18px rgba(0,0,0,.05);margin-bottom:14px}
-.hd{display:flex;align-items:center;justify-content:center;gap:22px;margin:4px 0 10px}
+.hd{display:flex;align-items:center;justify-content:center;gap:22px;margin:0 0 6px}
 .hd b{font-size:19px;letter-spacing:1px}.hd button,.ic{background:none;border:0;font-size:22px;padding:6px 10px;cursor:pointer;color:var(--ink)}
 .dow,.wk .cells{display:grid;grid-template-columns:repeat(7,1fr)}
 .dow div{text-align:center;font-size:12px;color:var(--mut);padding:4px 0}
@@ -31,10 +31,10 @@ h2{font-size:18px;margin:6px 0 12px;font-weight:800}
 .cell .n{font-size:clamp(11px,3.3vw,14px);font-weight:600;display:inline-block;min-width:22px;height:22px;line-height:22px;text-align:center;border-radius:11px}
 .cell.sun .n{color:var(--red)}.cell.sat .n{color:var(--blue)}.cell.out .n{opacity:.35}
 .cell.today .n{background:#111;color:#fff}
-.cell .st{position:absolute;bottom:3px;left:0;right:0;text-align:center;font-size:12px;white-space:nowrap}
+.cell .st{position:absolute;top:4px;right:3px;font-size:11px;line-height:18px;white-space:nowrap}
 .ov{position:absolute;inset:0;pointer-events:none}
 .ov svg{position:absolute;inset:0;width:100%;height:100%}
-.dot.ex{background:#f08a24;width:6px;height:6px;margin:-3px 0 0 -3px}.lb.ex{color:#e07b12;font-size:clamp(8.5px,2.5vw,10.5px);margin-top:-5px}.dot{position:absolute;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:#111}
+.dot.ex{background:#f08a24;width:6px;height:6px;margin:-3px 0 0 -3px}.lb.ex{transform:translate(-50%,0);margin-top:4px;color:#e07b12;font-size:clamp(8.5px,2.5vw,10.5px)}.dot{position:absolute;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:#111}
 .lb{position:absolute;transform:translate(-50%,-100%);font-size:clamp(10px,3vw,12.5px);font-weight:700;margin-top:-6px}
 .big{display:flex;align-items:center;justify-content:center;gap:12px;padding:14px}
 .big input{font-size:clamp(40px,15vw,64px);font-weight:800;width:min(190px,46vw);text-align:center;border:0;outline:0;background:none;color:var(--ink);font-family:inherit}
@@ -62,26 +62,30 @@ input[type=text],input[type=number],input[type=date],textarea{width:100%;border:
 .bar{height:12px;background:#e9e9ed;border-radius:6px;overflow:hidden;margin:10px 0 6px}.bar i{display:block;height:100%;background:#111;border-radius:6px}
 .msg{font-size:15px;line-height:1.5;font-weight:600}
 .sc{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.sc span{background:#f2f2f4;border-radius:14px;padding:5px 10px;font-size:13px}
-nav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom,0px));width:min(560px,calc(100% - 16px));background:rgba(255,255,255,.95);backdrop-filter:blur(14px);border-radius:34px;box-shadow:0 6px 26px rgba(0,0,0,.14);display:flex;padding:6px;z-index:9}
+nav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom,0px));width:min(414px,calc(100% - 16px));background:rgba(255,255,255,.95);backdrop-filter:blur(14px);border-radius:34px;box-shadow:0 6px 26px rgba(0,0,0,.14);display:flex;padding:6px;z-index:9}
 nav button{flex:1;border:0;background:none;border-radius:28px;padding:9px 0 7px;font-size:11px;font-weight:600;color:#111;cursor:pointer}
 nav button i{display:block;font-style:normal;font-size:22px}
 nav button.on{background:#e8e8ec}
 .mut{color:var(--mut);font-size:13px}
-.hn{position:absolute;top:27px;left:0;right:0;padding-left:5px;font-size:clamp(8px,2.3vw,10px);font-weight:700;white-space:nowrap;overflow:hidden;color:var(--red);letter-spacing:-.3px}
+.hn{position:absolute;top:24px;line-height:11px;left:0;right:0;padding-left:5px;font-size:clamp(8px,2.3vw,10px);font-weight:700;white-space:nowrap;overflow:hidden;color:var(--red);letter-spacing:-.3px}
 .cell.hol{background:#fff3f3}.cell.sub{background:#fff0e3}
 .cell.hol .n{color:var(--red)}.cell.sub .n,.cell.sub .hn{color:#e8590c}
 .cell.out .hn{opacity:.4}.cell.today .n{background:#111;color:#fff}
+.hero{padding:12px 14px;margin-bottom:8px;border-radius:20px}.hero .dt{font-size:12.5px;color:var(--mut);font-weight:600}.hero .gr{font-size:clamp(17px,5vw,20px);font-weight:800;margin:2px 0 8px}.chips2{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}.chips2::-webkit-scrollbar{display:none}.c2{flex:none;background:#f2f2f5;border-radius:14px;padding:5px 10px;font-size:12px;font-weight:700;white-space:nowrap}.c2 b{font-weight:800}.c2.pk{background:#111;color:#fff}
+.inst{display:block;width:100%;margin-top:4px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:10px;font-size:14px;font-weight:700;color:#111;box-shadow:0 2px 10px rgba(0,0,0,.05);cursor:pointer}.noapp{display:none!important}
+#md{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:30;display:none;align-items:flex-end;justify-content:center}#md.on{display:flex}.mc{background:#fff;border-radius:24px 24px 0 0;padding:20px 20px calc(18px + env(safe-area-inset-bottom,0px));width:min(430px,100%)}.mc h2{margin:0 0 10px}.mc ol{padding-left:20px;margin:0 0 14px;line-height:1.7;font-size:15px}.mc .btn{margin-top:0;margin-bottom:8px}
 .lg{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 12px}
-.lg b{font-size:14px}
+.lg b{font-size:12px}.lg{margin:6px 0 4px;font-size:12px}
 @media(max-width:340px){.card{padding:12px;border-radius:18px}h2{font-size:16px}.step{width:38px;height:38px;font-size:19px}.big{gap:6px;padding:10px}.big small{font-size:16px;margin-top:18px}nav{padding:4px}nav button{font-size:10px;padding:7px 0 5px}nav button i{font-size:19px}.hd{gap:10px}.hd b{font-size:16px}.row label{width:auto!important;min-width:40px;font-size:13px}.mini{padding:8px}.mini b{font-size:15px}.sb{font-size:10px}.sb i{font-size:22px}.btn{padding:14px;font-size:16px}.chip{font-size:12px}}
-@media(min-width:600px){.cell .n{font-size:15px}.hn{font-size:11px;padding-left:8px}.lb{font-size:13px}.lb.ex{font-size:11px}.cell{padding:6px 0 0 8px}}
 @media(max-height:500px){nav{padding:2px}nav button{padding:4px 0}nav button i{font-size:18px}body{padding-bottom:70px}}
 </style></head><body>
 
 <section class="page on" id="p-cal">
+<div class="card hero" id="hero"></div>
 <div class="hd"><button onclick="mv(-1)">‹</button><b id="ttl"></b><button onclick="mv(1)">›</button></div>
 <div class="cal"><div class="dow"><div style="color:var(--red)">일</div><div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div style="color:var(--blue)">토</div></div><div id="weeks"></div></div>
-<p class="mut lg"><span><b style="color:#111">●</b> 체중</span><span><b style="color:#f08a24">●</b> 운동시간</span><span><b style="color:#e5484d">●</b> 공휴일</span><span><b style="color:#e8590c">●</b> 대체공휴일</span></p><p class="mut" style="text-align:center;margin-top:0">날짜를 누르면 기록을 입력해요</p>
+<p class="mut lg"><span><b style="color:#111">●</b> 체중</span><span><b style="color:#f08a24">●</b> 운동시간</span><span><b style="color:#e5484d">●</b> 공휴일</span><span><b style="color:#e8590c">●</b> 대체공휴일</span></p>
+<button class="inst" id="inst2" onclick="installApp()">📲 앱 설치하기</button>
 </section>
 
 <section class="page" id="p-in">
@@ -109,8 +113,11 @@ nav button.on{background:#e8e8ec}
 
 <section class="page" id="p-set">
 <h2>설정</h2>
-<button class="btn" id="inst" style="display:none;margin:0 0 14px" onclick="doInst()">📲 앱으로 설치하기</button>
-<div class="card"><div class="row"><label style="width:80px">목표 체중</label><input type="number" step="0.1" id="goal" placeholder="kg"></div>
+<button class="btn" id="inst" style="margin:0 0 14px" onclick="installApp()">📲 앱 설치하기</button>
+<div class="card"><div class="row"><label style="width:80px">이름</label><input type="text" id="nm" placeholder="환영 문구에 표시돼요" maxlength="10"></div>
+<div class="row"><label style="width:80px">시작일</label><input type="date" id="sd"></div>
+<div class="row"><label style="width:80px">목표 날짜</label><input type="date" id="gd"></div>
+<div class="row"><label style="width:80px">목표 체중</label><input type="number" step="0.1" id="goal" placeholder="kg"></div>
 <div class="row" style="margin:0"><label style="width:80px">키 (BMI)</label><input type="number" step="0.1" id="ht" placeholder="cm"></div></div>
 <button class="btn" onclick="saveSet()">설정 저장</button>
 <button class="btn sec" style="margin-top:8px" onclick="demo()">예시 데이터 불러오기</button>
@@ -118,6 +125,7 @@ nav button.on{background:#e8e8ec}
 <p class="mut">데이터는 이 기기의 브라우저에만 저장돼요.</p>
 </section>
 
+<div id="md" onclick="if(event.target===this)cm()"><div class="mc"><h2 id="mt"></h2><div id="mb"></div><button class="btn" id="ma" style="display:none"></button><button class="btn sec" onclick="cm()">닫기</button></div></div>
 <nav id="nav"></nav>
 <script>
 const $=s=>document.querySelector(s);
@@ -155,7 +163,7 @@ function hiTxt(k){const t=dn(k),o=HOL[t],w=(t+4)%7;return {t:`${k.replace(/-/g,'
 // nav
 [['cal','📅','달력'],['in','✏️','입력'],['gr','📈','그래프'],['set','⚙️','설정']].forEach(([id,e,l])=>{const b=document.createElement('button');b.dataset.id=id;b.innerHTML=`<i>${e}</i>${l}`;b.onclick=()=>{if(id==='in')setDate(today());tab(id)};$('#nav').appendChild(b)});
 function tab(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+id));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.id===id));
- if(id==='cal')renderCal();if(id==='gr')renderGraph();if(id==='set'){$('#goal').value=D.goal||'';$('#ht').value=D.height||''}if(id==='in'&&!cur)setDate(today());scrollTo(0,0)}
+ if(id==='cal')renderCal();if(id==='gr')renderGraph();if(id==='set'){$('#goal').value=D.goal||'';$('#ht').value=D.height||'';$('#nm').value=D.name||'';$('#sd').value=D.start||'';$('#gd').value=D.goalDate||''}if(id==='in'&&!cur)setDate(today());scrollTo(0,0)}
 
 // calendar
 function mv(n){view=new Date(view.getFullYear(),view.getMonth()+n,1);renderCal()}
@@ -166,19 +174,21 @@ function renderCal(){
  const WS=recs().map(r=>({t:r.t,v:r.w})),ES=Object.keys(D.days).filter(k=>D.days[k].ex>0).sort().map(k=>({t:dn(k),v:D.days[k].ex}));
  const vw=WS.filter(r=>r.t>=first&&r.t<end).map(r=>r.v),ve=ES.filter(r=>r.t>=first&&r.t<end).map(r=>r.v);
  const mn=Math.min(...vw),mx=Math.max(...vw),sp=(mx-mn)||1,mxE=Math.max(1,...ve);
- const YW=v=>Math.max(60,Math.min(80,62+(mx-v)/sp*18)),YE=v=>Math.max(102,Math.min(116,116-v/mxE*14));
+ const RH=Math.max(84,Math.min(112,Math.floor((innerHeight-400)/nw))),wH=Math.max(9,(RH-34)*.18),eH=Math.max(7,(RH-34)*.14),SC=1;
+ renderHero();
+ const YW=v=>54+(mx-v)/sp*wH,YE=v=>RH-16-v/mxE*eH;
  let h='';
  for(let k=0;k<nw;k++){
   const rs=first+k*7;let cells='';
   for(let i=0;i<7;i++){const k2=fromDn(rs+i),ho=HOL[rs+i],d=D.days[k2],mo=+k2.slice(5,7)-1;
-   const st=d&&d.stamps?d.stamps.slice(0,3).map(i=>STAMPS[i][0]).join('')+(d.stamps.length>3?'+':''):'';
+   const st=d&&d.stamps?d.stamps.slice(0,SC).map(i=>STAMPS[i][0]).join(''):'';
    cells+=`<div class="cell ${i==0?'sun':i==6?'sat':''} ${mo!==m?'out':''} ${k2===T?'today':''} ${ho?(ho.sub?'sub':'hol'):''}" onclick="go('${k2}')"><span class="n">${+k2.slice(8)}</span>${ho?`<span class="hn">${ho.sub?'대체':ho.n[0]}</span>`:''}<div class="st">${st}</div></div>`}
   const line=(arr,Yf,col,fm,cls)=>{const inr=arr.filter(r=>r.t>=rs&&r.t<rs+7);if(!inr.length)return'';
    const prev=[...arr].reverse().find(r=>r.t<rs),nx=arr.find(r=>r.t>=rs+7);
    const pts=[...(prev?[prev]:[]),...inr,...(nx?[nx]:[])].map(r=>`${r.t-rs+.5},${Yf(r.v)}`).join(' ');
-   return `<svg viewBox="0 0 7 140" preserveAspectRatio="none"><polyline points="${pts}" fill="none" stroke="${col}" stroke-width="2.2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg>`+inr.map(r=>{const l=(r.t-rs+.5)/7*100,t=Yf(r.v);return `<div class="dot ${cls}" style="left:${l}%;top:${t}px"></div><div class="lb ${cls}" style="left:${l}%;top:${t}px">${fm(r.v)}</div>`}).join('')};
+   return `<svg viewBox="0 0 7 ${RH}" preserveAspectRatio="none"><polyline points="${pts}" fill="none" stroke="${col}" stroke-width="2.2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg>`+inr.map(r=>{const l=(r.t-rs+.5)/7*100,t=Yf(r.v);return `<div class="dot ${cls}" style="left:${l}%;top:${t}px"></div><div class="lb ${cls}" style="left:${l}%;top:${t}px">${fm(r.v)}</div>`}).join('')};
   const ov=line(WS,YW,'#111',v=>v.toFixed(1),'')+line(ES,YE,'#f08a24',v=>(+v.toFixed(1))+'h','ex');
-  h+=`<div class="wk"><div class="cells">${cells}</div><div class="ov">${ov}</div></div>`}
+  h+=`<div class="wk" style="height:${RH}px"><div class="cells">${cells}</div><div class="ov">${ov}</div></div>`}
  $('#weeks').innerHTML=h}
 function go(k){setDate(k);tab('in')}
 
@@ -248,15 +258,41 @@ function renderGraph(){
  ${top.length?`<div class="mut" style="font-weight:700;margin-top:10px">최근 30일 스탬프</div><div class="sc">${top.map(([i,c])=>`<span>${STAMPS[i][0]} ${c}</span>`).join('')}</div>`:''}`}
 
 // settings
-function saveSet(){D.goal=parseFloat($('#goal').value)||null;D.height=parseFloat($('#ht').value)||'';persist();toast('저장했어요 ✓')}
+function saveSet(){D.name=$('#nm').value.trim();D.start=$('#sd').value||'';D.goalDate=$('#gd').value||'';D.goal=parseFloat($('#goal').value)||null;D.height=parseFloat($('#ht').value)||'';persist();toast('저장했어요 ✓')}
 function demo(){if(!confirm('예시 데이터를 추가할까요? (같은 날짜 기록은 덮어써요)'))return;
  const ws=[65.0,64.3,63.9,63.6,63.3,63.2,62.8,62.6],t=dn(today());
  ws.forEach((w,i)=>{D.days[fromDn(t-7+i)]={w,meals:['','','',''],memo:'',stamps:i?[4,1]:[]}});D.goal=59;persist();toast('추가했어요');tab('cal')}
 function resetAll(){if(confirm('모든 기록을 삭제할까요? 되돌릴 수 없어요.')){D.days={};persist();toast('삭제했어요');tab('cal')}}
 let hiddenAt=0,dp=null;
-addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;$('#inst').style.display='block'});
-addEventListener('appinstalled',()=>{$('#inst').style.display='none'});
-function doInst(){if(dp){dp.prompt();dp=null;$('#inst').style.display='none'}}
+const UA=navigator.userAgent,IOS=/iPad|iPhone|iPod/.test(UA)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const STAND=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+function upInst(){document.querySelectorAll('#inst,#inst2').forEach(b=>b.classList.toggle('noapp',STAND()))}
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e});
+addEventListener('appinstalled',()=>{dp=null;upInst();toast('설치됐어요 🎉')});
+function modal(t,body,act,fn){$('#mt').textContent=t;$('#mb').innerHTML=body;const a=$('#ma');a.style.display=act?'block':'none';if(act){a.textContent=act;a.onclick=fn}$('#md').classList.add('on')}
+function cm(){$('#md').classList.remove('on')}
+function installApp(){
+ if(STAND()){toast('이미 앱으로 실행 중이에요');return}
+ if(dp){dp.prompt();dp.userChoice.then(()=>{dp=null}).catch(()=>{});return}
+ if(IOS){
+  if(/CriOS|FxiOS|EdgiOS|NAVER|KAKAOTALK|Instagram|FBAN|Line\//i.test(UA)){modal('📲 아이폰 앱 설치','<ol><li>이 주소를 <b>Safari</b>로 열어주세요.</li><li>공유 버튼 → <b>홈 화면에 추가</b></li></ol>',null);return}
+  modal('📲 홈 화면에 추가 (아이폰)','<ol><li>하단(또는 상단)의 <b>공유 버튼 ⬆︎</b>을 누르세요.</li><li>목록을 내려 <b>홈 화면에 추가</b>를 선택하세요.</li><li>오른쪽 위 <b>추가</b>를 누르면 바탕화면에 아이콘이 생겨요.</li></ol>',navigator.share?'공유창 열기':null,()=>navigator.share({title:'체중 달력',url:location.href}).catch(()=>{}));return}
+ modal('📲 앱 설치 (갤럭시)','<ol><li><b>Chrome</b>: 오른쪽 위 <b>⋮</b> → <b>앱 설치</b> (또는 홈 화면에 추가)</li><li><b>삼성 인터넷</b>: 하단 <b>≡</b> → <b>현재 페이지 추가</b> → <b>홈 화면</b></li></ol><p class="mut">설치하면 홈 화면·앱 서랍에 아이콘이 생겨요.</p>',null)}
+upInst();
+let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if($('#p-cal').classList.contains('on'))renderCal()},150)});
+function streakN(){const ks=new Set(recs().map(r=>r.t));let t=dn(today()),n=0;if(!ks.has(t))t--;while(ks.has(t)){n++;t--}return n}
+function renderHero(){
+ const k=today(),hx=hiTxt(k),R=recs(),T=dn(k);
+ const nm=D.name?`, ${D.name}님`:'';
+ const sd=D.start?dn(D.start):(R.length?R[0].t:null);
+ let c='';
+ if(sd!=null){const d=T-sd;c+=`<span class="c2 pk">🌱 시작 <b>${d>=0?'D+'+d:'D'+d}</b></span>`}
+ if(D.goalDate){const d=dn(D.goalDate)-T;c+=`<span class="c2">🎯 목표일 <b>${d>0?'D-'+d:d===0?'D-Day':'D+'+(-d)}</b></span>`}
+ const last=R.length?R[R.length-1].w:null,g=+D.goal||null;
+ if(last!=null&&g){const r=last-g;c+=`<span class="c2">${r>0?`⚖️ 목표까지 <b>${r.toFixed(1)}kg</b>`:'🎉 <b>목표 달성!</b>'}</span>`}
+ const sn=streakN();if(sn>0)c+=`<span class="c2">🔥 연속 <b>${sn}일</b></span>`;
+ if(!c)c='<span class="c2">설정에서 이름·목표를 입력해보세요 ✨</span>';
+ $('#hero').innerHTML=`<div class="dt" style="${hx.red?'color:#e5484d':''}">${hx.t.replace(/^(\d+)\.(\d+)\.(\d+)/,(m,a,b,c)=>`${a}년 ${+b}월 ${+c}일`)}</div><div class="gr">환영합니다${nm} 👋</div><div class="chips2">${c}</div>`}
 function home(){view=new Date();view.setDate(1);cur=null;tab('cal')}
 home();
 addEventListener('pageshow',e=>{if(e.persisted)home()});
