@@ -16,7 +16,7 @@
 :root{color-scheme:light;--bg:#f6f6f8;--card:#fff;--ink:#111;--mut:#8a8a90;--line:#e6e6ea;--acc:#111;--red:#d9534f;--blue:#3f6fd6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{background:#e8e8ed}body{box-shadow:0 0 0 1px #dcdce2;margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;max-width:430px;margin:0 auto;min-height:100vh;min-height:100dvh;padding-bottom:110px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html{background:#e8e8ed}body{box-shadow:0 0 0 1px #dcdce2;margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;max-width:430px;margin:0 auto;min-height:100vh;min-height:100dvh;padding-bottom:64px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .page{display:none;padding:14px max(clamp(8px,3vw,16px),env(safe-area-inset-right,0px)) 0 max(clamp(8px,3vw,16px),env(safe-area-inset-left,0px))}.page.on{display:block}
 h2{font-size:18px;margin:6px 0 12px;font-weight:800}
 .card{background:var(--card);border-radius:22px;padding:16px;box-shadow:0 4px 18px rgba(0,0,0,.05);margin-bottom:14px}
@@ -63,10 +63,10 @@ input[type=text],input[type=number],input[type=date],textarea{width:100%;border:
 .bar{height:12px;background:#e9e9ed;border-radius:6px;overflow:hidden;margin:10px 0 6px}.bar i{display:block;height:100%;background:#111;border-radius:6px}
 .msg{font-size:15px;line-height:1.5;font-weight:600}
 .sc{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.sc span{background:#f2f2f4;border-radius:14px;padding:5px 10px;font-size:13px}
-nav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom,0px));width:min(414px,calc(100% - 16px));background:rgba(255,255,255,.95);backdrop-filter:blur(14px);border-radius:34px;box-shadow:0 6px 26px rgba(0,0,0,.14);display:flex;padding:6px;z-index:9}
-nav button{flex:1;border:0;background:none;border-radius:28px;padding:9px 0 7px;font-size:11px;font-weight:600;color:#111;cursor:pointer}
-nav button i{display:block;font-style:normal;font-size:22px}
-nav button.on{background:#e8e8ec}
+nav{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:min(430px,100%);background:rgba(255,255,255,.97);backdrop-filter:blur(14px);border-top:1px solid var(--line);display:flex;padding:3px 0 calc(3px + env(safe-area-inset-bottom,0px));z-index:9}
+nav button{flex:1;border:0;background:none;padding:6px 0 4px;font-size:11px;font-weight:600;color:#9a9aa2;cursor:pointer}
+nav button i{display:block;font-style:normal;font-size:21px;line-height:1.25;filter:grayscale(1);opacity:.5}
+nav button.on{color:#111;font-weight:800}nav button.on i{filter:none;opacity:1}
 .mut{color:var(--mut);font-size:13px}
 .hn{position:absolute;top:24px;line-height:11px;left:0;right:0;padding-left:5px;font-size:clamp(8px,2.3vw,10px);font-weight:700;white-space:nowrap;overflow:hidden;color:var(--red);letter-spacing:-.3px}
 .cell.hol{background:#fff3f3}.cell.sub{background:#fff0e3}
@@ -86,15 +86,15 @@ nav button.on{background:#e8e8ec}
 #md{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:30;display:none;align-items:flex-end;justify-content:center}#md.on{display:flex}.mc{background:#fff;border-radius:24px 24px 0 0;padding:20px 20px calc(18px + env(safe-area-inset-bottom,0px));width:min(430px,100%)}.mc h2{margin:0 0 10px}.mc ol{padding-left:20px;margin:0 0 14px;line-height:1.7;font-size:15px}.mc .btn{margin-top:0;margin-bottom:8px}
 .lg{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 12px}
 .lg b{font-size:12px}.lg{margin:6px 0 4px;font-size:12px}
-@media(max-width:340px){.card{padding:12px;border-radius:18px}h2{font-size:16px}.step{width:38px;height:38px;font-size:19px}.big{gap:6px;padding:10px}.big small{font-size:16px;margin-top:18px}nav{padding:4px}nav button{font-size:10px;padding:7px 0 5px}nav button i{font-size:19px}.hd{gap:10px}.hd b{font-size:16px}.row label{width:auto!important;min-width:40px;font-size:13px}.mini{padding:8px}.mini b{font-size:15px}.sb{font-size:10px}.sb i{font-size:22px}.btn{padding:14px;font-size:16px}.chip{font-size:12px}}
-@media(max-height:500px){nav{padding:2px}nav button{padding:4px 0}nav button i{font-size:18px}body{padding-bottom:70px}}
+@media(max-width:340px){.card{padding:12px;border-radius:18px}h2{font-size:16px}.step{width:38px;height:38px;font-size:19px}.big{gap:6px;padding:10px}.big small{font-size:16px;margin-top:18px}nav button{font-size:10px}nav button i{font-size:19px}.hd{gap:10px}.hd b{font-size:16px}.row label{width:auto!important;min-width:40px;font-size:13px}.mini{padding:8px}.mini b{font-size:15px}.sb{font-size:10px}.sb i{font-size:22px}.btn{padding:14px;font-size:16px}.chip{font-size:12px}}
+@media(max-height:500px){nav button{padding:3px 0}nav button i{font-size:18px}body{padding-bottom:52px}}
 </style></head><body>
 
 <section class="page on" id="p-cal">
 <div class="card hero" id="hero"></div>
 <div class="hd"><button onclick="mv(-1)">‹</button><b id="ttl"></b><button onclick="mv(1)">›</button></div>
 <div class="cal"><div class="dow"><div style="color:var(--red)">일</div><div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div style="color:var(--blue)">토</div></div><div id="weeks"></div></div>
-<p class="mut lg"><span><b style="color:#111">●</b> 체중</span><span><b style="color:#f08a24">●</b> 운동시간</span><span><b style="color:#e5484d">●</b> 공휴일</span><span><b style="color:#e8590c">●</b> 대체공휴일</span></p>
+<p class="mut lg"><span><b style="color:#111">●</b> 체중</span><span><b style="color:#f08a24">●</b> 운동시간</span></p>
 </section>
 
 <section class="page" id="p-in">
@@ -183,7 +183,7 @@ function renderCal(){
  const WS=recs().map(r=>({t:r.t,v:r.w})),ES=Object.keys(D.days).filter(k=>D.days[k].ex>0).sort().map(k=>({t:dn(k),v:D.days[k].ex}));
  const vw=WS.filter(r=>r.t>=first&&r.t<end).map(r=>r.v),ve=ES.filter(r=>r.t>=first&&r.t<end).map(r=>r.v);
  const mn=Math.min(...vw),mx=Math.max(...vw),sp=(mx-mn)||1,mxE=Math.max(1,...ve);
- const RH=Math.max(84,Math.min(112,Math.floor((innerHeight-400)/nw))),wH=Math.max(9,(RH-34)*.18),eH=Math.max(7,(RH-34)*.14),SC=1;
+ const RH=Math.max(84,Math.min(124,Math.floor((innerHeight-365)/nw))),wH=Math.max(9,(RH-34)*.18),eH=Math.max(7,(RH-34)*.14),SC=1;
  renderHero();
  const cl=x=>Math.max(0,Math.min(1,x)),YW=v=>54+cl((mx-v)/sp)*wH,YE=v=>RH-16-cl(v/mxE)*eH;
  let h='';
@@ -191,7 +191,7 @@ function renderCal(){
   const rs=first+k*7;let cells='';
   for(let i=0;i<7;i++){const k2=fromDn(rs+i),ho=HOL[rs+i],d=D.days[k2],mo=+k2.slice(5,7)-1;
    const st=d&&d.stamps?d.stamps.slice(0,SC).map(i=>STAMPS[i][0]).join(''):'';
-   cells+=`<div class="cell ${i==0?'sun':i==6?'sat':''} ${mo!==m?'out':''} ${k2===T?'today':''} ${ho?(ho.sub?'sub':'hol'):''}" onclick="go('${k2}')"><span class="n">${+k2.slice(8)}</span>${ho?`<span class="hn">${ho.sub?'대체':ho.n[0]}</span>`:''}<div class="st">${st}</div></div>`}
+   cells+=`<div class="cell ${i==0?'sun':i==6?'sat':''} ${mo!==m?'out':''} ${k2===T?'today':''} ${ho?(ho.sub?'sub':'hol'):''}" onclick="go('${k2}')"><span class="n">${+k2.slice(8)}</span>${ho&&!ho.sub?`<span class="hn">${ho.n[0]}</span>`:''}<div class="st">${st}</div></div>`}
   const line=(arr,Yf,col,fm,cls)=>{const inr=arr.filter(r=>r.t>=rs&&r.t<rs+7);if(!inr.length)return'';
    const prev=[...arr].reverse().find(r=>r.t<rs),nx=arr.find(r=>r.t>=rs+7);
    const pts=[...(prev?[prev]:[]),...inr,...(nx?[nx]:[])].map(r=>`${r.t-rs+.5},${Yf(r.v)}`).join(' ');

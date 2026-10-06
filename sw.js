@@ -1,5 +1,5 @@
 // 오프라인 지원용 서비스 워커. 앱을 수정해서 배포할 때마다 버전 숫자를 올리세요.
-const CACHE = 'weight-cal-v6';
+const CACHE = 'weight-cal-v7';
 const FILES = ['./', './index.html', './manifest.json', './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-512.png', './icons/apple-touch-icon.png'];
 self.addEventListener('install', e => {
   // 파일 하나가 없어도 설치가 실패하지 않도록 개별로 캐시
